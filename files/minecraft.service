@@ -1,0 +1,18 @@
+[Unit]
+Description=Minecraft server
+After=local-fs.target network.target
+
+[Service]
+WorkingDirectory=/var/minecraft
+User=minecraft
+Group=minecraft
+Nice=5
+
+KillMode=process
+KillSignal=SIGINT
+SuccessExitStatus=130
+
+ExecStart=/usr/bin/java -Xms1G -Xmx1G -jar /var/minecraft/server.jar --nogui
+
+[Install]
+WantedBy=multi-user.target
