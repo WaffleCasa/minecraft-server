@@ -68,9 +68,36 @@
         owner: minecraft
         group: minecraft
 
+    - name: Copy AntiEnderman
+      ansible.builtin.copy:
+        src: ./files/anti enderman grief v1.1.6 (MC 1.20-1.20.4).zip
+        dest: "{{ base_path }}/shadoworld/datapacks/antienderman.zip"
+        owner: minecraft
+        group: minecraft
+
+    - name: Copy ArmorStands
+      ansible.builtin.copy:
+        src: ./files/armor statues v2.8.11 (MC 1.20-1.20.4).zip
+        dest: "{{ base_path }}/shadoworld/datapacks/armorstands.zip"
+        owner: minecraft
+        group: minecraft
+
+    - name: Copy NameColors
+      ansible.builtin.copy:
+        src: ./files/name colors v1.0.4 (MC 1.20-1.20.4).zip
+        dest: "{{ base_path }}/shadoworld/datapacks/namecolors.zip"
+        owner: minecraft
+        group: minecraft
+
+    - name: Copy PlayerHead
+      ansible.builtin.copy:
+        src: ./files/player head drops v1.1.6 (MC 1.20-1.20.4).zip
+        dest: "{{ base_path }}/shadoworld/datapacks/playerhead.zip"
+        owner: minecraft
+        group: minecraft
+
     - name: Enable Minecraft Service
       ansible.builtin.systemd_service:
         name: minecraft
         enabled: true
-        state: started
-        name: minecraft
+        state: restarted
